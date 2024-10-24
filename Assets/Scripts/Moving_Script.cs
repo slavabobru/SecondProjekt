@@ -6,6 +6,8 @@ public class Moving_Script : MonoBehaviour
 {
     // Start is called before the first frame update
     public int speed = 15;
+    public float horizontal;
+    public float vertical;
     void Start()
     {
         
@@ -14,21 +16,19 @@ public class Moving_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.back * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * vertical);
+            transform.Translate(Vector3.back * Time.deltaTime * speed * horizontal);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0,-3,0);
+            transform.Rotate(0, -1 ,0);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0, 3, 0);
+            transform.Rotate(0, 1, 0);
         }
     }
 }
