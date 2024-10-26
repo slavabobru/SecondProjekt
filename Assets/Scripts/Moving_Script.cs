@@ -16,11 +16,11 @@ public class Moving_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        // horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed * vertical);
-            transform.Translate(Vector3.back * Time.deltaTime * speed * horizontal);
+            // transform.Translate(Vector3.back * Time.deltaTime * speed * horizontal);
         }
         if (Input.GetKey(KeyCode.A))
         {
