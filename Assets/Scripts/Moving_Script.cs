@@ -31,4 +31,15 @@ public class Moving_Script : MonoBehaviour
             transform.Rotate(0, 1, 0);
         }
     }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("removable"))
+        {
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Stopper"))
+        {
+            vertical = 0;
+        }
+    }
 }
