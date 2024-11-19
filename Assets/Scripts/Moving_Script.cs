@@ -8,6 +8,8 @@ public class Moving_Script : MonoBehaviour
     public int speed = 15;
     public float horizontal;
     public float vertical;
+    public GameObject player;
+    public GameObject player_st_pos;
     void Start()
     {
         
@@ -30,6 +32,14 @@ public class Moving_Script : MonoBehaviour
         {
             transform.Rotate(0, 1, 0);
         }
+        if (Input.GetKey(KeyCode.F))
+        {
+            transform.Rotate(0, 0, -90);
+        }
+        //if (Input.GetKey(KeyCode.R))
+        //{
+            //player.transform.position = Vector3(player_st_pos);
+        //}
     }
     public void OnCollisionEnter(Collision collision)
     {
