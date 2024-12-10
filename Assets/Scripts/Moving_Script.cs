@@ -6,10 +6,12 @@ public class Moving_Script : MonoBehaviour
 {
     // Start is called before the first frame update
     public int speed = 15;
+    public int jumpSp = 10;
     public float horizontal;
     public float vertical;
     public GameObject player;
     public GameObject player_st_pos;
+    public Rigidbody rb;
     void Start()
     {
         
@@ -36,9 +38,13 @@ public class Moving_Script : MonoBehaviour
         {
             transform.Rotate(0, 0, -90);
         }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * jumpSp, ForceMode.Impulse);
+        }
         //if (Input.GetKey(KeyCode.R))
         //{
-            //player.transform.position = Vector3(player_st_pos);
+        //player.transform.position = Vector3(player_st_pos);
         //}
     }
     public void OnCollisionEnter(Collision collision)
